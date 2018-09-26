@@ -5,26 +5,106 @@
     <title>Title</title>
 
     <!-- Link to Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- Link to CSS -->
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <!-- Link to Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
 
 </head>
 <body>
 
-
-<form>
-    <div class="form-group">
-        <label for="formGroupExampleInput">Example label</label>
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+<div class="container">
+    <br>
+    <div class="jumbotron">
+        <h1 class="text-center">Employee Data Management</h1>
+        <h3 class="text-center">A Comprehensive Directory of Employee Billable Hours</h3>
     </div>
-    <div class="form-group">
-        <label for="formGroupExampleInput2">Another label</label>
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+    <br>
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <div class="card card-default">
+                <div class="card-header">
+                    Current Employees
+                </div>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Employee Name</th>
+                            <th scope="col">Role</th>
+                            <th scope="col">Start Date</th>
+                            <th scope="col">Months Worked</th>
+                            <th scope="col">Monthly Rate ($)</th>
+                            <th scope="col">Total Billed ($)</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+<!--                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>-->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        <div class="col-lg-2"></div>
+        </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <div class="card card-default">
+                <div class="card-header">
+                    Add Employee
+                </div>
+                <div class="card-body">
+                    <form role="form">
+                        <div class="form-group row">
+                            <label for="name-input">Employee Name:</label>
+                            <input class="form-control" id="name-input" type="text">
+                        </div>
+                        <div class="form-group row">
+                            <label for="role-input">Role:</label>
+                            <input class="form-control" id="role-input" type="text">
+                        </div>
+                        <div class="form-group row">
+                            <label for="start-input">Start Date (MM/DD/YYYY:</label>
+                            <input class="form-control" id="start-input" type="date">
+                        </div>
+                        <div class="form-group row">
+                            <label for="rate-input">Monthly Rate</label>
+                            <input class="form-control" id="rate-input" type="text">
+                        </div>
+                        <button class="btn btn-default" id="add-employee" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2"></div>
     </div>
-</form>
+</div>
 
-    <!-- Link to Javascript -->
-    
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- Link to Moment.js should go here -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<!-- Link to Javascript -->
+<script src="assets/app.js"></script>
 </body>
 </html>
