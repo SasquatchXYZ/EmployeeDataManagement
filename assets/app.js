@@ -1,8 +1,6 @@
 //Initialize Firebase
 
 
-firebase.initializeApp(config);
-
 // Create a variable to reference the database.
 var database = firebase.database();
 
@@ -18,6 +16,7 @@ $("#add-employee").on("click", function(event) {
     name = $("#name-input").val().trim();
     role = $("#role-input").val().trim();
     startDate = $("#start-input").val().trim();
+    /*startDate = moment($("#start-input").val().trim(), 'MM/DD/YYYY').format("X");*/
     rate = $("#rate-input").val().trim();
 
     database.ref('Employee-Tracking').push({
@@ -27,6 +26,11 @@ $("#add-employee").on("click", function(event) {
         rate: rate,
         dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
+
+    $("#name-input").val("");
+    $("#role-input").val("");
+    $("#start-input").val("");
+    $("#rate-input").val("");
 });
 
 database.ref('Employee-Tracking').on("child_added", function(snapshot) {
@@ -37,13 +41,20 @@ database.ref('Employee-Tracking').on("child_added", function(snapshot) {
     console.log(em.startDate);
     console.log(em.rate);
 
+    let startDateFormatted = moment(em.startDate).format("MM/DD/YYYY");
+
+    let monthsWorked = moment().diff(startDateFormatted, "months");
+
+    let totalBilled = monthsWorked * em.rate;
+
     $(".table").append(`<tr>
                             <td>${em.name}</td>
                             <td>${em.role}</td>
-                            <td>${em.startDate}</td>
+                            <td>${startDateFormatted}</td>
+                            <td>${monthsWorked}</td>
                             <td>${em.rate}</td>
+                            <td>${totalBilled}</td>
                             </tr>`);
-
 
 }, function(errorObject) {
     console.log("Errors handled: " + errorObject.code);
